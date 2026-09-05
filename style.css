@@ -1,0 +1,258 @@
+@import url('Asians.jpg');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Formal Dark Overlay over Original Background with Entrance Fade */
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(10, 25, 47, 0.88), rgba(10, 25, 47, 0.88)),
+                url('Asians.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+    animation: fadeInBody 0.8s ease-out;
+}
+
+@keyframes fadeInBody {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* ===========================
+   WELCOME SLIDE OVERLAY (Animated)
+   =========================== */
+.welcome-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 25, 47, 0.96);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: transform 0.7s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.welcome-overlay.slide-up {
+    transform: translateY(-100%);
+}
+
+.welcome-content {
+    text-align: center;
+    color: #ffffff;
+    padding: 30px;
+    animation: scaleUpContent 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes scaleUpContent {
+    from { transform: scale(0.92); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.welcome-logo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border: 3px solid #38bdf8;
+    box-shadow: 0 0 25px rgba(56, 189, 248, 0.3);
+    animation: pulseLogo 3s infinite ease-in-out;
+}
+
+@keyframes pulseLogo {
+    0%, 100% { box-shadow: 0 0 20px rgba(56, 189, 248, 0.2); }
+    50% { box-shadow: 0 0 35px rgba(56, 189, 248, 0.5); }
+}
+
+.welcome-content h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: #f8fafc;
+}
+
+.welcome-content p {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    margin-bottom: 35px;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.start-btn {
+    padding: 14px 40px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.start-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
+}
+
+/* ===========================
+   FORM CONTAINER CARD (Formal & Animated)
+   =========================== */
+.container {
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid #cbd5e1;
+    border-radius: 14px;
+    padding: 40px 32px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    width: 100%;
+    max-width: 440px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: slideInCard 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.45);
+}
+
+@keyframes slideInCard {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.logo {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 12px;
+    border: 2px solid #e2e8f0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.form-header h1 {
+    font-size: 1.7rem;
+    color: #0f172a;
+    margin: 4px 0;
+    font-weight: 700;
+}
+
+.school-year {
+    display: block;
+    color: #64748b;
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+}
+
+form {
+    width: 100%;
+}
+
+/* INPUT CONTROLS */
+.input-box {
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+.input-box input {
+    width: 100%;
+    padding: 12px 16px;
+    background-color: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    color: #1e293b;
+    font-size: 0.95rem;
+    outline: none;
+    transition: all 0.25s ease-in-out;
+}
+
+.input-box input:focus {
+    background-color: #ffffff;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
+.input-box input::placeholder {
+    color: #94a3b8;
+}
+
+.name-row {
+    display: flex;
+    gap: 12px;
+    width: 100%;
+}
+
+.name-row .input-box {
+    flex: 1;
+}
+
+/* BUTTONS */
+.submit-btn {
+    width: 100%;
+    padding: 13px;
+    background: #2563eb;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    transition: all 0.25s ease;
+    margin-top: 4px;
+}
+
+.submit-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.45);
+}
+
+/* FOOTER LINKS */
+.form-footer {
+    margin-top: 20px;
+}
+
+.admin-link {
+    color: #2563eb;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.admin-link:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+
+@media(max-width: 480px) {
+    .container {
+        width: 90%;
+        padding: 30px 20px;
+    }
+}
